@@ -1,0 +1,52 @@
+// Protobuf3.0
+// @description Definition of the CLIPS6.30 facts format
+// @author Zhaozihe
+// @date 2018-7-16 11:32:57
+
+syntax = "proto3";
+package buaa.facts;
+
+import public "flight_control.proto";
+import public "comm_link.proto";
+
+//事实
+message facts{
+    buaa.facts.fc_facts fc_facts = 1;
+    buaa.facts.comm_facts comm_facts = 2;
+} 
+
+//飞控事实
+message fc_facts{
+    buaa.facts.flightcontrol.velocity velocity = 1;
+    buaa.facts.flightcontrol.altitude altitude = 2;
+    buaa.facts.flightcontrol.radio_altitude1 radio_altitude1 = 3;
+    buaa.facts.flightcontrol.radio_altitude2 radio_altitude2 = 4;
+    buaa.facts.flightcontrol.pressure_altitude pressure_altitude = 5;
+    buaa.facts.flightcontrol.gear_state gear_state = 6;
+    buaa.facts.flightcontrol.coolant1 coolant1 = 7;
+    buaa.facts.flightcontrol.coolant2 coolant2 = 8;
+}
+
+//链路事实
+message comm_facts{
+    buaa.facts.commlink.c_up c_up = 1;
+    buaa.facts.commlink.c_down c_down = 2;
+    buaa.facts.commlink.u_up u_up = 3;
+    buaa.facts.commlink.u_down u_down = 4;
+    buaa.facts.commlink.ku_up ku_up = 5;
+    buaa.facts.commlink.ku_down ku_down = 6;
+}
+
+message sim_start{
+    bool start = 1; //仿真开始标识
+}
+
+message result{
+    bytes res = 1; //专家系统推理结果
+    bool end = 2; //是否解析到文件尾，仿真停止标识
+    buaa.facts.fact_data data = 3;//事实库数据，";"分割
+}
+
+message fact_data{
+    bytes data = 1; //事实库数据，";"分割
+}

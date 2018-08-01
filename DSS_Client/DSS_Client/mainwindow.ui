@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>899</width>
+    <height>505</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>智能决策系统</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#MainWindow{
+	
+	background-image: url(:/bgpic/res/bzk.png);
+}
+/**********子界面背景**********/
+QWidget#customWidget {
+        background: rgb(68, 69, 73);
+}
+
+/**********子界面中央背景**********/
+QWidget#centerWidget {
+        background: rgb(50, 50, 50);
+}
+
+/**********主界面样式**********/
+QWidget#mainWindow {
+        border: 1px solid rgb(50, 50, 50);
+        background: rgb(50, 50, 50);
+}
+
+QWidget#messageWidget {
+        background: rgba(68, 69, 73, 50%);
+}
+
+QWidget#loadingWidget {
+        border: none;
+        border-radius: 5px;
+        background: rgb(50, 50, 50);
+}
+
+QWidget#remoteWidget {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border: 1px solid rgb(45, 45, 45);
+        background: rgb(50, 50, 50);
+}
+
+StyledWidget {
+        qproperty-normalColor: white;
+        qproperty-disableColor: gray;
+        qproperty-highlightColor: rgb(0, 160, 230);
+        qproperty-errorColor: red;
+}
+
+QProgressIndicator {
+        qproperty-color: rgb(175, 175, 175);
+}
+
+/**********提示**********/
+QToolTip{
+        border: 1px solid rgb(45, 45, 45);
+        background: white;
+        color: black;
+}
+
+/**********菜单栏**********/
+QMenuBar {
+        background: rgb(57, 58, 60);
+        border: none;
+}
+QMenuBar::item {
+        padding: 5px 10px 5px 10px;
+        background: transparent;
+}
+QMenuBar::item:enabled {
+        color: rgb(227, 234, 242);
+}
+QMenuBar::item:!enabled {
+        color: rgb(155, 155, 155);
+}
+QMenuBar::item:enabled:selected {
+        background: rgba(255, 255, 255, 40);
+}
+
+/**********菜单**********/
+QMenu {
+        border: 1px solid rgb(100, 100, 100);
+        background: rgb(68, 69, 73);
+}
+QMenu::item {
+        height: 22px;
+        padding: 0px 25px 0px 20px;
+}
+QMenu::item:enabled {
+        color: rgb(225, 225, 225);
+}
+QMenu::item:!enabled {
+        color: rgb(155, 155, 155);
+}
+QMenu::item:enabled:selected {
+        color: rgb(230, 230, 230);
+        background: rgba(255, 255, 255, 40);
+}
+QMenu::separator {
+        height: 1px;
+        background: rgb(100, 100, 100);
+}
+QMenu::indicator {
+        width: 13px;
+        height: 13px;
+}
+QMenu::icon {
+        padding-left: 2px;
+        padding-right: 2px;
+}
+
+/**********状态栏**********/
+QStatusBar {
+        background: rgb(57, 58, 60);
+}
+QStatusBar::item {
+        border: none;
+        border-right: 1px solid rgb(100, 100, 100);
+}
+
+/**********分组框**********/
+QGroupBox {
+        font-size: 15px;
+        border: 1px solid rgb(80, 80, 80);
+        border-radius: 4px;
+        margin-top: 10px;
+}
+QGroupBox::title {
+        color: rgb(175, 175, 175);
+        top: -12px;
+        left: 10px;
+}
+
+/**********页签项**********/
+QTabWidget::pane {
+        border: none;
+        border-top: 3px solid rgb(0, 160, 230);
+        background: rgb(57, 58, 60);
+}
+QTabWidget::tab-bar {
+        border: none;
+}
+QTabBar::tab {
+        border: none;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        color: rgb(175, 175, 175);
+        background: rgb(255, 255, 255, 30);
+        height: 28px;
+        min-width: 85px;
+        margin-right: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+}
+QTabBar::tab:hover {
+        background: rgb(255, 255, 255, 40);
+}
+QTabBar::tab:selected {
+        color: white;
+        background: rgb(0, 160, 230);
+}
+
+QTabWidget#tabWidget::pane {
+        border: 1px solid rgb(45, 45, 45);
+        background: rgb(57, 58, 60);
+        margin-top: -1px;
+}
+
+QTabBar#tabBar::tab {
+        border: 1px solid rgb(45, 45, 45);
+        border-bottom: none;
+        background: transparent;
+}
+QTabBar#tabBar::tab:hover {
+        color: white;
+}
+QTabBar#tabBar::tab:selected {
+        color: white;
+        background: rgb(57, 58, 60);
+}
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="maximumSize">
+    <size>
+     <width>899</width>
+     <height>443</height>
+    </size>
+   </property>
+   <widget class="QWidget" name="formLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>100</y>
+      <width>160</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout"/>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>899</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>专家系统</string>
+    </property>
+    <addaction name="action_rule"/>
+    <addaction name="action_knowlege"/>
+    <addaction name="separator"/>
+    <addaction name="action_log"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>系统设置</string>
+    </property>
+    <addaction name="action_srvcfg"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>模块选择</string>
+    </property>
+    <addaction name="action_fc"/>
+    <addaction name="action_comm"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>推理控制</string>
+    </property>
+    <addaction name="action_start"/>
+    <addaction name="action_pause"/>
+    <addaction name="action_terminate"/>
+    <addaction name="separator"/>
+    <addaction name="action_fast"/>
+    <addaction name="action_slow"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_4"/>
+   <addaction name="menu_3"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="action_rule">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/gnome-stock-text-indent.png</normaloff>:/icon/res/icon/gnome-stock-text-indent.png</iconset>
+   </property>
+   <property name="text">
+    <string>规则库配置</string>
+   </property>
+   <property name="statusTip">
+    <string>配置可选规则库</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+R</string>
+   </property>
+  </action>
+  <action name="action_knowlege">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/help.png</normaloff>:/icon/res/icon/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>知识库配置</string>
+   </property>
+   <property name="statusTip">
+    <string>配置可用知识库</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+K</string>
+   </property>
+  </action>
+  <action name="action_log">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/gtk-select-all.png</normaloff>:/icon/res/icon/gtk-select-all.png</iconset>
+   </property>
+   <property name="text">
+    <string>推理日志</string>
+   </property>
+   <property name="statusTip">
+    <string>查看推理日志</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+L</string>
+   </property>
+  </action>
+  <action name="action_srvcfg">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/system-run.png</normaloff>:/icon/res/icon/system-run.png</iconset>
+   </property>
+   <property name="text">
+    <string>服务连接配置</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+G</string>
+   </property>
+  </action>
+  <action name="action_fc">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/viewmagfit.png</normaloff>:/icon/res/icon/viewmagfit.png</iconset>
+   </property>
+   <property name="text">
+    <string>飞控模块</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+1</string>
+   </property>
+  </action>
+  <action name="action_comm">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/viewmagfit.png</normaloff>:/icon/res/icon/viewmagfit.png</iconset>
+   </property>
+   <property name="text">
+    <string>通信链路模块</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+2</string>
+   </property>
+  </action>
+  <action name="action_start">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/start.ico</normaloff>:/icon/res/icon/start.ico</iconset>
+   </property>
+   <property name="text">
+    <string>开始</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+P</string>
+   </property>
+  </action>
+  <action name="action_pause">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/pause.ico</normaloff>:/icon/res/icon/pause.ico</iconset>
+   </property>
+   <property name="text">
+    <string>暂停</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="action_terminate">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/stop.ico</normaloff>:/icon/res/icon/stop.ico</iconset>
+   </property>
+   <property name="text">
+    <string>停止</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="action_fast">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/fastforward.ico</normaloff>:/icon/res/icon/fastforward.ico</iconset>
+   </property>
+   <property name="text">
+    <string>快进</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+F</string>
+   </property>
+  </action>
+  <action name="action_slow">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/Player_Slow.ico</normaloff>:/icon/res/icon/Player_Slow.ico</iconset>
+   </property>
+   <property name="text">
+    <string>慢进</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
