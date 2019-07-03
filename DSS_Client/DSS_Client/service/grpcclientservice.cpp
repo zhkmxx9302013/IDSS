@@ -6,7 +6,12 @@ GrpcClientService::GrpcClientService()
 
 }
 
-//@stub 获取规则库文件列表
+/**
+ * @stub
+ * @brief GrpcClientService::FetchRuleFileList  获取规则库文件列表
+ * @param fileList
+ * @return
+ */
 bool GrpcClientService::FetchRuleFileList(vector<rule_file_info> &fileList)
 {
     buaa::dss::placeholder ph;
@@ -27,7 +32,12 @@ bool GrpcClientService::FetchRuleFileList(vector<rule_file_info> &fileList)
     return true;
 }
 
-//@stub 加载所选的规则文件列表
+/**
+ * @stub
+ * @brief GrpcClientService::SaveRuleList 加载所选的规则文件列表
+ * @param filelist
+ * @return
+ */
 bool GrpcClientService::SaveRuleList(const vector<rule_file_chk> &filelist)
 {
     if(filelist.size() <= 0) return false;
@@ -40,7 +50,7 @@ bool GrpcClientService::SaveRuleList(const vector<rule_file_chk> &filelist)
         {
             if(!fileListWriter->Write(file))
             {
-                cerr << "werr" <<endl;
+                cerr << "werr" <<endl; //禁用日志组件，暂用io流
                 break;
             }
         }
@@ -56,7 +66,12 @@ bool GrpcClientService::SaveRuleList(const vector<rule_file_chk> &filelist)
     return true;
 }
 
-//@stub 保存需要解析的事实库文件列表到服务端
+/**
+ * @stub
+ * @brief GrpcClientService::SaveFactList 保存需要解析的事实库文件列表到服务端
+ * @param filelist
+ * @return
+ */
 bool GrpcClientService::SaveFactList(const vector<fact_file_chk> &filelist)
 {
     if(filelist.size() <= 0) return false;
@@ -85,7 +100,12 @@ bool GrpcClientService::SaveFactList(const vector<fact_file_chk> &filelist)
     return true;
 }
 
-//@stub 返回slots列表<templatename, slotname>
+
+/**
+ * @stub
+ * @brief GrpcClientService::GetSlotList 返回slots列表<templatename, slotname>
+ * @return
+ */
 std::vector<std::map<std::string, std::string>>  GrpcClientService::GetSlotList()
 {
     std::vector<std::map<std::string, std::string>> slot_list;
@@ -108,7 +128,13 @@ std::vector<std::map<std::string, std::string>>  GrpcClientService::GetSlotList(
     return slot_list;
 }
 
-//@stub 通知服务端需要加载的Slot信息(只传template名称即可)
+
+/**
+ * @stub
+ * @brief GrpcClientService::SetSlotList  通知服务端需要加载的Slot信息(只传template名称即可)
+ * @param factlist
+ * @return
+ */
 bool GrpcClientService::SetSlotList(const vector<fact_list> &factlist)
 {
     if(factlist.size() <= 0) return false;
@@ -137,7 +163,12 @@ bool GrpcClientService::SetSlotList(const vector<fact_list> &factlist)
     return true;
 }
 
-
+/**
+ * @stub
+ * @brief GrpcClientService::FetchFactList 获取事实列表
+ * @param fileList
+ * @return
+ */
 bool GrpcClientService::FetchFactList(vector<fact_file_info> &fileList)
 {
     buaa::dss::placeholder ph;
@@ -158,7 +189,12 @@ bool GrpcClientService::FetchFactList(vector<fact_file_info> &fileList)
     return true;
 }
 
-//@stub 获取已选择的模板槽对象列表
+
+/**
+ * @stub
+ * @brief GrpcClientService::GetSelectedSlots 获取已选择的模板槽对象列表
+ * @return
+ */
 std::vector<fact_list> GrpcClientService::GetSelectedSlots()
 {
     buaa::dss::placeholder ph;
@@ -179,7 +215,13 @@ std::vector<fact_list> GrpcClientService::GetSelectedSlots()
     return factList;
 }
 
-//@stub 获取事实库文件变量列表
+
+/**
+ * @stub
+ * @brief GrpcClientService::FetchVarList  获取事实库文件变量列表
+ * @param vallist
+ * @return
+ */
 bool GrpcClientService::FetchVarList(vector<fact_var> &vallist)
 {
     buaa::dss::placeholder ph;
@@ -201,7 +243,12 @@ bool GrpcClientService::FetchVarList(vector<fact_var> &vallist)
 }
 
 
-//@stub 设置模板槽、变量映射关系到服务端
+/**
+ * @stub
+ * @brief GrpcClientService::SetMapperList  设置模板槽、变量映射关系到服务端
+ * @param mapperList
+ * @return
+ */
 bool GrpcClientService::SetMapperList(const std::vector<buaa::file::mapper> &mapperList)
 {
     if(mapperList.size() <= 0) return false;
@@ -231,7 +278,11 @@ bool GrpcClientService::SetMapperList(const std::vector<buaa::file::mapper> &map
 }
 
 
-void GrpcClientService::StartReasoning() //开始推理
+/**
+ * @stub
+ * @brief GrpcClientService::StartReasoning 开始推理
+ */
+void GrpcClientService::StartReasoning()
 {
     grpc::ClientContext context;
     buaa::dss::placeholder ph;
@@ -247,7 +298,13 @@ void GrpcClientService::StartReasoning() //开始推理
     }
 }
 
-buaa::facts::result GrpcClientService::GetReasoningResult() //获取推理结果
+
+/**
+ * @stub
+ * @brief GrpcClientService::GetReasoningResult 获取推理结果
+ * @return
+ */
+buaa::facts::result GrpcClientService::GetReasoningResult()
 {
     grpc::ClientContext context;
     buaa::dss::placeholder ph;
@@ -265,7 +322,137 @@ buaa::facts::result GrpcClientService::GetReasoningResult() //获取推理结果
     }
 }
 
-// 为桩设置channel
+/**
+ * @brief GrpcClientService::OnChartSim 单步触发图表更新服务
+ */
+void GrpcClientService::TriggerChartSim()
+{
+    grpc::ClientContext context;
+    buaa::dss::placeholder ph;
+    try{
+        Status status = stub_->OnChartSim(&context, ph, &ph);
+    }catch(const std::exception& e){
+        return;
+    }
+}
+
+
+/**
+ * @stub
+ * @brief GrpcClientService::GetRPMChartData （rpm数据）
+ * @return Vector [真实值序列， 预测值序列， 误差值序列]
+ */
+std::vector<std::vector<double> > GrpcClientService::GetRPMChartData()
+{
+    std::vector<std::vector<double>> res;
+
+    res.emplace_back(GetRPMGtData());
+    res.emplace_back(GetRPMPredData());
+    res.emplace_back(GetRPMErrData());
+    return res;
+}
+
+
+/**
+ * @brief GrpcClientService::GetRPMGtData
+ * @return
+ */
+std::vector<double> GrpcClientService::GetRPMGtData()
+{
+    grpc::ClientContext context;
+    buaa::dss::placeholder ph;
+    typedef buaa::nn::lstmpred::gtVal gt_val_grpc;
+    std::vector<double> gtValList;
+    gt_val_grpc gtVal;
+
+    try{
+         //GROUND TRUTH 真实值
+         std::unique_ptr<ClientReader<gt_val_grpc>> gtValListReader(stub_->GetGtChartData(&context, ph));
+         while(gtValListReader->Read(&gtVal))
+         {
+             gtValList.emplace_back(gtVal.val());
+         }
+
+    }catch(const std::exception& e){
+        return { };
+    }
+
+    return gtValList;
+}
+
+/**
+ * @brief GrpcClientService::GetRPMPredData
+ * @return
+ */
+std::vector<double> GrpcClientService::GetRPMPredData()
+{
+    grpc::ClientContext context;
+    buaa::dss::placeholder ph;
+    typedef  buaa::nn::lstmpred::predVal pred_val_grpc;
+    std::vector<double> predValList;
+    pred_val_grpc predVal;
+
+    try{
+         //PREDICTION 预测值
+         std::unique_ptr<ClientReader<pred_val_grpc>> predValListReader(stub_->GetPredChartData(&context, ph));
+         while(predValListReader->Read(&predVal))
+         {
+             predValList.emplace_back(predVal.val());
+         }
+    }catch(const std::exception& e){
+        return {};
+    }
+
+    return predValList;
+}
+
+std::vector<double> GrpcClientService::GetRPMErrData()
+{
+    grpc::ClientContext context;
+    buaa::dss::placeholder ph;
+    typedef  buaa::nn::lstmpred::errVal err_val_grpc;
+    std::vector<double> errValList;
+    err_val_grpc errVal;
+
+    try{
+         //ERROR 误差值
+         std::unique_ptr<ClientReader<err_val_grpc>> errValListReader(stub_->GetErrChartData(&context, ph));
+         while(errValListReader->Read(&errVal))
+         {
+             errValList.emplace_back(errVal.val());
+         }
+
+    }catch(const std::exception& e){
+        return {};
+    }
+    return errValList;
+}
+
+/**
+ * @brief GrpcClientService::SetChartType 更改图像类型
+ * @param type
+ */
+void GrpcClientService::SetChartType(const int type)
+{
+    grpc::ClientContext context;
+    buaa::dss::placeholder ph;
+    buaa::nn::lstmpred::chartType chartType;
+    chartType.set_type(type);
+    try{
+        Status status = stub_->SetChartType(&context, chartType, &ph);
+        if (! status.ok())
+            return;
+
+    }catch(const std::exception& e){
+        return;
+    }
+}
+
+
+/**
+ * @brief GrpcClientService::SetChannel 为stub设置channel
+ * @param channel
+ */
 void GrpcClientService::SetChannel(std::shared_ptr<Channel> channel)
 {
     this->stub_ = Reasoning::NewStub(channel);

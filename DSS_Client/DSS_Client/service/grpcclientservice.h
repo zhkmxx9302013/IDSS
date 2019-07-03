@@ -1,6 +1,9 @@
 #ifndef GRPCCLIENTSERVICE_H
 #define GRPCCLIENTSERVICE_H
-
+/**
+ * @brief The GrpcClientService class 用于Grpc接口相关服务(单例)
+ * @author zhaozihe
+ */
 #include <memory>
 #include <string>
 #include <vector>
@@ -19,6 +22,8 @@
 #include "proto-gen/clips_facts.pb.h"
 #include "proto-gen/flight_control.pb.h"
 #include "proto-gen/file.pb.h"
+#include "proto-gen/lstm_prediction.pb.h"
+//#include "proto-gen/planning_control.pb.h"
 
 using namespace std;
 using grpc::Channel;
@@ -88,6 +93,14 @@ public:
     void StartReasoning(); //开始推理
     buaa::facts::result GetReasoningResult(); //获取推理结果
 
+    void TriggerChartSim();// 每拍驱动LSTM预测，但更新图表为异步事件
+
+    std::vector<std::vector<double>> GetRPMChartData(); //获取发动机转速相关图表展示数据序列 (0~1300)
+    std::vector<double> GetRPMGtData();
+    std::vector<double> GetRPMPredData();
+    std::vector<double> GetRPMErrData();
+    void SetChartType(const int type); //更改图像类型
+
     //unique_ptr成员的拷贝构造器
     GrpcClientService( const GrpcClientService& rhs ): stub_( copy_unique(rhs.stub_) )
     {
@@ -98,6 +111,7 @@ public:
     {
         return source ? std::make_unique<T>(*source) : nullptr;
     }
+
 
 private:
     //grpc::ClientContext context;

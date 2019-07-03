@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://qt.io/qt3dstudio/uia">
+	<assets initial="Aircraft">
+		<presentation id="Aircraft"	src="Aircraft.uip"/>
+	</assets>
+
+	<statemachine ref="#logic">
+		<visual-states>
+			<state ref="Initial">
+				<enter>
+					<goto-slide element="main:Scene" rel="next"/>
+				</enter>
+			</state>
+		</visual-states>
+	</statemachine>
+</application>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UIP Version="1" >
+	<Project Revision="1" >
+		<Graph >
+			<Group id="__import__root__" >
+				<Model id="Headphones" name="Headphones" orientation="Right Handed" position="0 0 -0" rotation="0 -0 0" rotationorder="XYZr" scale="1 1 1" sourcepath="meshes/Headphones.mesh" >
+					<Material id="headpiece" name="headpiece" blendmode="Normal" diffuse="1 1 1" emissivepower="0" opacity="100" specularamount="0" />
+					<Material id="trim" name="trim" blendmode="Normal" diffuse="1 1 1" emissivepower="0" opacity="100" specularamount="0" />
+					<Material id="plastic" name="plastic" blendmode="Normal" diffuse="1 1 1" emissivepower="0" opacity="100" specularamount="0" />
+					<Material id="phone" name="phone" blendmode="Normal" diffuse="1 1 1" emissivepower="0" opacity="100" specularamount="0" />
+					<Material id="earpiece" name="earpiece" blendmode="Normal" diffuse="1 1 1" emissivepower="0" opacity="100" specularamount="0" />
+					<Material id="foam" name="foam" blendmode="Normal" diffuse="1 1 1" emissivepower="0" opacity="100" specularamount="0" />
+				</Model>
+			</Group>
+		</Graph>
+		<Import SrcFile="E:/QT/QT3D/Tools/Qt3DStudio/bin/Content/Models Library/Electronics/Headphones.dae" ImageDir="Images" MeshDir="Meshes" >
+			<Mesh >
+				<Source >Headphones</Source>
+				<Dest >meshes/Headphones.mesh</Dest>
+			</Mesh>
+		</Import>
+	</Project>
+</UIP>

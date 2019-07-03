@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>res/icon/document-properties.png</file>
+        <file>res/icon/gnome-stock-text-indent.png</file>
+        <file>res/icon/gtk-select-all.png</file>
+        <file>res/icon/help.png</file>
+        <file>res/icon/system-run.png</file>
+        <file>res/icon/viewmagfit.png</file>
+        <file>res/icon/view-sort-descending.png</file>
+        <file>res/icon/db.ico</file>
+        <file>res/icon/dc.ico</file>
+        <file>res/icon/download.ico</file>
+        <file>res/icon/database.ico</file>
+        <file>res/icon/edit_rule.ico</file>
+        <file>res/icon/opencfg.ico</file>
+        <file>res/icon/fastforward.ico</file>
+        <file>res/icon/pause.ico</file>
+        <file>res/icon/Player_Slow.ico</file>
+        <file>res/icon/start.ico</file>
+        <file>res/icon/stop.ico</file>
+    </qresource>
+    <qresource prefix="/bgpic">
+        <file>res/bzk.png</file>
+        <file>res/indicator_red.png</file>
+        <file>res/indicator_black.png</file>
+        <file>res/indicator_green.png</file>
+        <file>res/panel_bg.png</file>
+        <file>res/GearDown.png</file>
+        <file>res/GearError.png</file>
+        <file>res/GearUP.png</file>
+        <file>res/indicator_yellow.png</file>
+        <file>res/log_bg.png</file>
+    </qresource>
+</RCC>

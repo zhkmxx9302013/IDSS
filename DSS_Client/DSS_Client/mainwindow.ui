@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>899</width>
-    <height>505</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,11 +19,14 @@
   <property name="windowTitle">
    <string>智能决策系统</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <property name="styleSheet">
-   <string notr="true">QWidget#MainWindow{
-	
+   <string notr="true">/*QWidget#MainWindow{
+
 	background-image: url(:/bgpic/res/bzk.png);
-}
+}*/
 /**********子界面背景**********/
 QWidget#customWidget {
         background: rgb(68, 69, 73);
@@ -35,13 +38,25 @@ QWidget#centerWidget {
 }
 
 /**********主界面样式**********/
+QWidget#m_parameterScrutiny{
+	
+	background: rgb(113, 113, 113);
+}
+QWidget#m_intelScrutiny{
+	
+	background: rgb(113, 113, 113);
+}
 QWidget#mainWindow {
         border: 1px solid rgb(50, 50, 50);
         background: rgb(50, 50, 50);
 }
 
-QWidget#messageWidget {
-        background: rgba(68, 69, 73, 50%);
+QWidget#mainWindow {
+        border: 1px solid rgb(50, 50, 50);
+        background: rgb(50, 50, 50);
+}
+QWidget#centralWidget {
+        background: rgba(68, 69, 73);
 }
 
 QWidget#loadingWidget {
@@ -201,20 +216,97 @@ QTabBar#tabBar::tab:selected {
   <widget class="QWidget" name="centralWidget">
    <property name="maximumSize">
     <size>
-     <width>899</width>
-     <height>443</height>
+     <width>1920</width>
+     <height>1000</height>
     </size>
    </property>
-   <widget class="QWidget" name="formLayoutWidget">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>100</y>
-      <width>160</width>
-      <height>80</height>
+      <x>0</x>
+      <y>0</y>
+      <width>1921</width>
+      <height>1041</height>
      </rect>
     </property>
-    <layout class="QFormLayout" name="formLayout"/>
+    <layout class="QGridLayout" name="m_GlobalGridLayout" columnstretch="6">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
+     </property>
+     <item row="0" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="6,1,6">
+       <item>
+        <widget class="QLabel" name="m_parameterScrutiny">
+         <property name="font">
+          <font>
+           <family>黑体</family>
+           <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 14pt &quot;黑体&quot;;
+color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>参数监控</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="margin">
+          <number>5</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="m_simTimeLabel">
+         <property name="styleSheet">
+          <string notr="true">font: 14pt &quot;黑体&quot;;
+color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>0.0s</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="m_intelScrutiny">
+         <property name="font">
+          <font>
+           <family>黑体</family>
+           <pointsize>14</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 14pt &quot;黑体&quot;;
+color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>智能监控</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="margin">
+          <number>5</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -222,8 +314,8 @@ QTabBar#tabBar::tab:selected {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>899</width>
-     <height>28</height>
+     <width>1920</width>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -240,6 +332,9 @@ QTabBar#tabBar::tab:selected {
      <string>系统设置</string>
     </property>
     <addaction name="action_srvcfg"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="action_exit"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="title">
@@ -402,7 +497,10 @@ QTabBar#tabBar::tab:selected {
      <normaloff>:/icon/res/icon/fastforward.ico</normaloff>:/icon/res/icon/fastforward.ico</iconset>
    </property>
    <property name="text">
-    <string>快进</string>
+    <string>快进 x 5</string>
+   </property>
+   <property name="toolTip">
+    <string>快进 x 5</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+F</string>
@@ -414,10 +512,25 @@ QTabBar#tabBar::tab:selected {
      <normaloff>:/icon/res/icon/Player_Slow.ico</normaloff>:/icon/res/icon/Player_Slow.ico</iconset>
    </property>
    <property name="text">
-    <string>慢进</string>
+    <string>慢进 x 1/5</string>
+   </property>
+   <property name="toolTip">
+    <string>慢进 x 1/5</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/res/icon/start.ico</normaloff>:/icon/res/icon/start.ico</iconset>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
    </property>
   </action>
  </widget>

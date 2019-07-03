@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TTKSpeedMeterWindow</class>
+ <widget class="QMainWindow" name="TTKSpeedMeterWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>465</width>
+    <height>321</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TTKSpeedMeterWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidgetChart">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="TTKSpeedMeterWidget" name="widget" native="true"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>TTKSpeedMeterWidget</class>
+   <extends>QWidget</extends>
+   <header>ttkspeedmeterwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

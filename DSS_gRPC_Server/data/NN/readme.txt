@@ -1,0 +1,1 @@
+double_normalized14_100_50_weight

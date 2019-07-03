@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UIP Version="1" >
+	<Project Revision="1" >
+		<Graph >
+			<Group id="__import__root__" >
+				<Model id="RoundedCube" name="RoundedCube" orientation="Right Handed" position="0 0 -0" rotation="0 -0 0" rotationorder="XYZr" scale="1 1 1" sourcepath="meshes/RoundedCube.mesh" >
+					<Material id="lambert2" name="lambert2" blendmode="Normal" diffuse="1 1 1" emissivepower="0" opacity="100" specularamount="0" />
+				</Model>
+			</Group>
+		</Graph>
+		<Import SrcFile="E:/QT/QT3D/Tools/Qt3DStudio/bin/Content/Models Library/Primitives/Cubes/RoundedCube-1.dae" ImageDir="Images" MeshDir="Meshes" >
+			<Mesh >
+				<Source >RoundedCube</Source>
+				<Dest >meshes/RoundedCube.mesh</Dest>
+			</Mesh>
+		</Import>
+	</Project>
+</UIP>
