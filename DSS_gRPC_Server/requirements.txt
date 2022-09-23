@@ -24,7 +24,7 @@ numpy==1.15.4
 pandas==0.23.4
 pathlib2==2.3.0
 pipreqs==0.4.9
-protobuf==3.6.1
+protobuf==3.18.3
 protobuf-tools==0.0.3
 pyclips==1.0.7.343
 pyparsing==2.3.0
