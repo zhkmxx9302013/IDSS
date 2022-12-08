@@ -1,5 +1,5 @@
 backports.functools-lru-cache==1.5
-certifi==2019.3.9
+certifi==2022.12.7
 chardet==3.0.4
 cntk==2.6
 cntk-gpu==2.6
